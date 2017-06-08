@@ -1,4 +1,4 @@
-  // Initialize Firebase
+// Initialize Firebase
   var config = {
     apiKey: "AIzaSyDhqTlub3P3eUSaC0UdNfeN5FZJD3e0oTc",
     authDomain: "employeeproject-f1eb2.firebaseapp.com",
@@ -18,8 +18,9 @@ var pay = "";
 var inputData = "";
 
 $(document).ready(function(){
+  event.preventDefault();
 
-  $(".submit").on("click", function() {
+  $("#addEmployeeBtn").on("click", function() {
     name = $("#name").val().trim();
     role = $("#Role").val().trim();
     startDate = $("#start-date").val().trim();
@@ -35,6 +36,9 @@ $(document).ready(function(){
     database.ref().push(inputData)
 
   });
+
+  database.ref().on("child_added", function() {
+    
+  })
+
 })
-
-
